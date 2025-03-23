@@ -1,5 +1,5 @@
 name: learn-github-actions
-run-name: ${{ github.actor }} is learning Quarkus 
+run-name: ${{ github.actor }} is learning Quarkus through maven
 on: [push]
 jobs:
   build-and-test:
