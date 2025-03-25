@@ -30,7 +30,7 @@ jobs:
       - name: Package
         run: mvn clean install 
       - name: Run
-        run: docker build --build-arg JAR_FILE=target/*.jar -t org/acme . && docker run -p 8080:8080 org/acme && code=$?;echo "Code = $code" && exit $code
+        run: timeout 1 docker build --build-arg JAR_FILE=target/*.jar -t org/acme . && docker run -p 8080:8080 org/acme && code=$?;echo "Code = $code" && exit $code
 
 
 
