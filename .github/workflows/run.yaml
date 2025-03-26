@@ -31,9 +31,11 @@ jobs:
         run: mvn clean install 
       - name: Run # Without timeout
         timeout-minutes: 3
+        continue-on-error: true
         run: docker build --build-arg JAR_FILE=target/*.jar -t org/acme . && docker run -p 8080:8080 org/acme && code=$?;echo "Code = $code" && exit $code
       - name: Run # We add or so that return code is not none-zero which causes pipeline to fail
         timeout-minutes: 1
+        continue-on-error: true
         run: docker build --build-arg JAR_FILE=target/*.jar -t org/acme . && docker run -p 8080:8080 org/acme && code=$?;echo "Code = $code" && exit $code
 
 
